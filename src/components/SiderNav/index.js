@@ -4,7 +4,7 @@ import CustomMenu from "../CustomMenu/index";
 const menus = [
   {
     title: '合伙人管理',
-    icon: 'home',
+    icon: 'user',
     key: '/home',
     subs: [
       {key: '/home/general/button', title: '合伙人列表', icon: '',},
@@ -13,7 +13,7 @@ const menus = [
   },
   {
     title: '数据管理',
-    icon: 'laptop',
+    icon: 'bar-chart',
     key: '/home/general',
     subs: [
       {key: '/home/general/button', title: '实时概况', icon: '',},
@@ -25,7 +25,7 @@ const menus = [
   },
   {
     title: '会员',
-    icon: 'bars',
+    icon: 'star',
     key: '/home/navigation',
     subs: [
       {key: '/home/navigation/dropdown', title: '客户管理', icon: ''},
@@ -36,7 +36,7 @@ const menus = [
   },
   {
     title: '商品管理',
-    icon: 'edit',
+    icon: 'pay-circle',
     key: '/home/entry',
     subs: [
       {
@@ -53,7 +53,7 @@ const menus = [
   },
   {
     title: '店铺管理',
-    icon: 'desktop',
+    icon: 'environment',
     key: '/home/display',
     subs: [
       {key: '/home/display/carousel', title: '店铺列表', icon: ''},
@@ -63,7 +63,7 @@ const menus = [
   },
   {
     title: '订单管理',
-    icon: 'message',
+    icon: 'mail',
     key: '/home/feedback',
     subs: [
       {key: '/home/feedback/modal', title: '订单处理', icon: '',},
@@ -72,7 +72,7 @@ const menus = [
   },
   {
     title: '活动管理',
-    icon: 'bulb',
+    icon: 'tag',
     key: '/home/other',
     subs:[
       {key: '/home/other/animation', title: '平台发起', icon: '',},
@@ -81,7 +81,7 @@ const menus = [
   },
   {
     title: '运营支持',
-    icon: 'info-circle-o',
+    icon: 'solution',
     key: '/home/about',
     subs:[
       {key: '/home/other/animation', title: '宣传素材下载', icon: '',},
