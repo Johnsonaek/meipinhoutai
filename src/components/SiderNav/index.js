@@ -7,7 +7,7 @@ const menus = [
     icon: 'user',
     key: '/home',
     subs: [
-      {key: '/home/general/button', title: '合伙人列表', icon: '',},
+      {key: '/home/Partner/PartnerList', title: '合伙人列表', icon: '',},
 
     ]
   },
@@ -16,11 +16,11 @@ const menus = [
     icon: 'bar-chart',
     key: '/home/general',
     subs: [
-      {key: '/home/general/button', title: '实时概况', icon: '',},
-      {key: '/home/general/icon', title: '核心指标', icon: '',},
-      {key: '/home/general/button', title: '流量看板', icon: '',},
-      {key: '/home/general/icon', title: '客户看板', icon: '',},
-      {key: '/home/general/icon', title: '评价体系', icon: '',},
+      {key: '/home/data/situation', title: '实时概况', icon: '',},
+      {key: '/home/data/target', title: '核心指标', icon: '',},
+      {key: '/home/data/flux', title: '流量看板', icon: '',},
+      {key: '/home/data/user', title: '客户看板', icon: '',},
+      {key: '/home/data/assessment', title: '评价体系', icon: '',},
     ]
   },
   {
@@ -28,10 +28,10 @@ const menus = [
     icon: 'star',
     key: '/home/navigation',
     subs: [
-      {key: '/home/navigation/dropdown', title: '客户管理', icon: ''},
-      {key: '/home/navigation/menu', title: '客户查询', icon: ''},
-      {key: '/home/navigation/steps', title: '标签管理', icon: ''},
-      {key: '/home/navigation/steps', title: '客户运营', icon: ''},
+      {key: '/home/vip/inquiry', title: '客户管理', icon: ''},
+      {key: '/home/vip/manage', title: '客户查询', icon: ''},
+      {key: '/home/vip/tag', title: '标签管理', icon: ''},
+      {key: '/home/vip/operation', title: '客户运营', icon: ''},
     ]
   },
   {
@@ -39,16 +39,8 @@ const menus = [
     icon: 'pay-circle',
     key: '/home/entry',
     subs: [
-      {
-        key: '/home/entry/form',
-        title: '表单',
-        icon: '',
-        subs: [
-          {key: '/home/entry/form/basic-form', title: '商品列表', icon: ''},
-          {key: '/home/entry/form/step-form', title: '上架审核', icon: ''}
-        ]
-      },
-      {key: '/home/entry/upload', title: '上传', icon: ''},
+      {key: '/home/goods/audit', title: '上架审核', icon: ''},
+      {key: '/home/goods/list', title: '商品列表', icon: ''}
     ]
   },
   {

@@ -9,6 +9,30 @@ const Home = LoadableComponent(()=>import('../../routes/Home/index'))  //参数�
 const ButtonDemo = LoadableComponent(()=>import('../../routes/General/ButtonDemo/index'))
 const IconDemo = LoadableComponent(()=>import('../../routes/General/IconDemo/index'))
 
+
+//合伙人组件Demo
+const PartnerListDemo = LoadableComponent(()=>import('../../routes/Partner/PartnerList'))
+
+
+//数据管理demo
+const SituationDemo = LoadableComponent(()=>import('../../routes/Data/Situation'))
+const FluxDemo = LoadableComponent(()=>import('../../routes/Data/Flux'))
+const TargetDemo = LoadableComponent(()=>import('../../routes/Data/Target'))
+const UserDemo = LoadableComponent(()=>import('../../routes/Data/User'))
+const AssessmentDemo = LoadableComponent(()=>import('../../routes/Data/Assessment'))
+
+
+//会员
+const IquiryDemo = LoadableComponent(()=>import('../../routes/Vip/Inquiry'))
+const ManageDemo = LoadableComponent(()=>import('../../routes/Vip/Manage'))
+const OperationDemo = LoadableComponent(()=>import('../../routes/Vip/Operation'))
+const TagDemo = LoadableComponent(()=>import('../../routes/Vip/Tag'))
+
+
+//商品列表
+const ListDemo = LoadableComponent(()=>import('../../routes/Goods/List'))
+const AuditDemo = LoadableComponent(()=>import('../../routes/Goods/Audit'))
+
 //导航组件Demo
 const DropdownDemo = LoadableComponent(()=>import('../../routes/Navigation/DropdownDemo/index'))
 const MenuDemo = LoadableComponent(()=>import('../../routes/Navigation/MenuDemo/index'))
@@ -22,7 +46,7 @@ const UploadDemo = LoadableComponent(()=>import('../../routes/Entry/UploadDemo/i
 //显示组件Demo
 const CarouselDemo = LoadableComponent(()=>import('../../routes/Display/CarouselDemo/index'))
 const CollapseDemo = LoadableComponent(()=>import('../../routes/Display/CollapseDemo/index'))
-const ListDemo = LoadableComponent(()=>import('../../routes/Display/ListDemo/index'))
+const ListDemo_goods = LoadableComponent(()=>import('../../routes/Display/ListDemo/index'))
 const TableDemo = LoadableComponent(()=>import('../../routes/Display/TableDemo/index'))
 const TabsDemo = LoadableComponent(()=>import('../../routes/Display/TabsDemo/index'))
 
@@ -52,6 +76,31 @@ class ContentMain extends React.Component {
           <PrivateRoute exact path='/home' component={Home}/>
 
           <PrivateRoute exact path='/home/general/button' component={ButtonDemo}/>
+
+
+          //代理人路由
+          <PrivateRoute exact path='/home/partner/partnerlist' component={PartnerListDemo}/>
+
+          //数据管理路由
+          <PrivateRoute exact path='/home/data/situation' component={SituationDemo}/>
+          <PrivateRoute exact path='/home/data/target' component={TargetDemo}/>
+          <PrivateRoute exact path='/home/data/flux/' component={FluxDemo}/>
+          <PrivateRoute exact path='/home/data/user' component={UserDemo}/>
+          <PrivateRoute exact path='/home/data/' component={PartnerListDemo}/>
+          <PrivateRoute exact path='/home/data/assessment' component={AssessmentDemo}/>
+
+          //会员路由
+          <PrivateRoute exact path='/home/vip/inquiry' component={IquiryDemo}/>
+          <PrivateRoute exact path='/home/vip/manage/' component={ManageDemo}/>
+          <PrivateRoute exact path='/home/vip/operation' component={OperationDemo}/>
+          <PrivateRoute exact path='/home/vip/tag' component={TagDemo}/>
+
+          //商品
+          <PrivateRoute exact path='/home/goods/list' component={ListDemo}/>
+          <PrivateRoute exact path='/home/goods/audit' component={AuditDemo}/>
+
+
+
           <PrivateRoute exact path='/home/general/icon' component={IconDemo}/>
 
           <PrivateRoute exact path='/home/navigation/dropdown' component={DropdownDemo}/>
