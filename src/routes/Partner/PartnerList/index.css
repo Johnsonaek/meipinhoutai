@@ -1,7 +1,18 @@
-.header{
+.header1{
     display: flex;
+    margin: 20px;
 }
-.box1{
+.header2{
     display: flex;
+    margin: 20px;
+}
+.box{
+    margin: 10px;
+}
+Input{
+    display: inline;
+}
+Button{
+    margin: 5px;
 }
 

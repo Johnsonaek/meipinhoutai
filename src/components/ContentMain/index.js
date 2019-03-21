@@ -5,6 +5,8 @@ import PrivateRoute from '../PrivateRoute'
 
 const Home = LoadableComponent(()=>import('../../routes/Home/index'))  //参数一定要是函数，否则不会懒加载，只会代码拆分
 
+//由组件关联到路由的文件
+
 //基本组件Demo
 const ButtonDemo = LoadableComponent(()=>import('../../routes/General/ButtonDemo/index'))
 const IconDemo = LoadableComponent(()=>import('../../routes/General/IconDemo/index'))
@@ -12,6 +14,7 @@ const IconDemo = LoadableComponent(()=>import('../../routes/General/IconDemo/ind
 
 //合伙人组件Demo
 const PartnerListDemo = LoadableComponent(()=>import('../../routes/Partner/PartnerList'))
+const PartnerListAddDemo = LoadableComponent(()=>import('../../routes/Partner/PartnerList/PartnerListAdd'))
 
 
 //数据管理demo
@@ -77,9 +80,10 @@ class ContentMain extends React.Component {
 
           <PrivateRoute exact path='/home/general/button' component={ButtonDemo}/>
 
-
+          //由打开的网址关联到组件
           //代理人路由
           <PrivateRoute exact path='/home/partner/partnerlist' component={PartnerListDemo}/>
+          <PrivateRoute exact path='/home/partner/partnerlist/partnerlistadd' component={PartnerListAddDemo}/>
 
           //数据管理路由
           <PrivateRoute exact path='/home/data/situation' component={SituationDemo}/>

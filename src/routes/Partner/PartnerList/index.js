@@ -1,8 +1,9 @@
 import React from 'react'
-import {Card, Popconfirm, Button, Icon, Table, Divider, BackTop, Affix, Anchor, Form, InputNumber, Input} from 'antd'
+import {Card, Popconfirm, Button, Icon, Table, Divider, BackTop, DatePicker, Form, InputNumber, Input} from 'antd'
 import axios from 'axios'
 import CustomBreadcrumb from '../../../components/CustomBreadcrumb/index'
 import TypingCard from '../../../components/TypingCard'
+import './index.css'
 
 const columns = [
   {
@@ -167,22 +168,17 @@ const columns6 = [
     render: () => <a>action</a>,
   },
 ];
-const data6 = [];
-for (let i = 0; i < 100; i++) {
-  data6.push({
-    key: i,
-    name: `Edrward ${i}`,
-    age: 32,
-    address: `London Park no. ${i}`,
-  });
-}
+
 const data8 = [];
 for (let i = 0; i < 100; i++) {
   data8.push({
     key: i.toString(),
-    name: `Edrward ${i}`,
-    age: 32,
-    address: `London Park no. ${i}`,
+    user: `Edward King ${i+1}`,
+    name: `爱德华 ${i+1}`,
+    phone: 13752201254,
+    maker:'李四',
+    time:'创建时间',
+    status:'可用',
   });
 }
 const FormItem = Form.Item;
@@ -246,17 +242,7 @@ class PartnerList extends React.Component {
     pagination: {
       pageSize: 8
     },
-    data7: [{
-      key: '0',
-      name: 'Edward King 0',
-      age: '32',
-      address: 'London, Park Lane no. 0',
-    }, {
-      key: '1',
-      name: 'Edward King 1',
-      age: '32',
-      address: 'London, Park Lane no. 1',
-    }],
+
     count: 2,
     data8,
     editingKey: '',
@@ -266,54 +252,52 @@ class PartnerList extends React.Component {
     this.getRemoteData()
   }
 
-  columns7 = [
-    {
-      title: 'name',
-      dataIndex: 'name',
-      width: '30%',
-    },
-    {
-      title: 'age',
-      dataIndex: 'age',
-    },
-    {
-      title: 'address',
-      dataIndex: 'address',
-    },
-    {
-      title: 'operation',
-      dataIndex: 'operation',
-      render: (text, record) => {
-        return (
-            this.state.data7.length > 1 ?
-                <Popconfirm title="Sure to delete?" onConfirm={() => this.onDelete(record.key)}>
-                  <a>Delete</a>
-                </Popconfirm> : null
-        )
-      }
-    }
-  ]
+
   columns8 = [
     {
-      title: 'name',
-      dataIndex: 'name',
-      width: '25%',
-      editable: true,
-    },
-    {
-      title: 'age',
-      dataIndex: 'age',
+      title: 'ID',
+      dataIndex: 'key',
       width: '15%',
       editable: true,
     },
     {
-      title: 'address',
-      dataIndex: 'address',
-      width: '40%',
+      title: '账户',
+      dataIndex: 'user',
+      width: '15%',
       editable: true,
     },
     {
-      title: 'operation',
+      title: '姓名',
+      dataIndex: 'name',
+      width: '15%',
+      editable: true,
+    },
+    {
+      title: '创建时间',
+      dataIndex: 'time',
+      width: '15%',
+      editable: true,
+    },
+    {
+      title: '手机号',
+      dataIndex: 'phone',
+      width: '15%',
+      editable: true,
+    },
+    {
+      title: '状态',
+      dataIndex: 'status',
+      width: '15%',
+      editable: true,
+    },
+    {
+      title: '创建人',
+      dataIndex: 'maker',
+      width: '15%',
+      editable: true,
+    },
+    {
+      title: '操作',
       dataIndex: 'operation',
       render: (text, record) => {
         const editable = this.isEditing(record);
@@ -519,31 +503,35 @@ class PartnerList extends React.Component {
         }),
       };
     });
-    const cardContent = `<ul class="card-ul">
-            <li>当有大量结构化的数据需要展现时</li>
-            <li>标当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时</li>
-          </ul>`
-
-
-
-
     return (
         <div>
-          <list style={{width:500}}>
-            <ul >
-              <p>地区</p>
-              <p>电话</p>
-              <p>电话姓名</p>
-            </ul>
-            <ul>
-              <p>地区</p>
-              <p>电话</p>
-              <p>电话姓名</p>
-            </ul>
-          </list>
           <Card bordered={false} title='合伙人列表' style={{marginBottom: 10, minHeight: 440}} id='editTable'>
+            <div className="header1">
+                <div className='box'>
+                  地区：<Input  addonAfter="V"  />
+                </div>
+                <div className='box'>
+                  电话：<Input type="text" placeholder=' 请输入电话号码'/>
+                </div>
+                <div className='box'>
+                  姓名：<Input type="text"  placeholder=' 请输入姓名'/>
+                </div>
+            </div>
+            <div className="header2">
+              <div className='box'>
+                创建时间：<DatePicker />
+              </div>
+              <div className='box'>
+                <Input addonBefore="状态" addonAfter="V" defaultValue="全部" />
+              </div>
+              <div className='box'>
+                <Button>搜索</Button>
+                <Button>导出数据</Button>
+              </div>
+            </div>
+
             <p>
-              <Button onClick={this.handleAdd}>添加合伙人</Button>
+              <Button link to = '/home'>添加合伙人</Button>
             </p>
             <Table style={styles.tableStyle} components={components} bordered dataSource={this.state.data8}
                    columns={columns8}/>
