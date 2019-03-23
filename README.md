@@ -21,7 +21,7 @@ webstorm打开项目时占用内存过高，不知道是不是代码的问题。
 
  - react
  - antd
- - react-router
+ - react-routerf
  - mobx
  - canvas
  - ES6

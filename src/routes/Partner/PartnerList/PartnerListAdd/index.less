@@ -1,16 +1,13 @@
 h1{
     font-size: 40px;
     margin: 10px;
+
 }
 .info{
     margin: 15px;
     position: relative;
 }
-.info Input{
-    position: absolute;
-    width: 180px;
-    left: 70px;
-}
+
 .box Card:nth-child(1) .info:nth-child(1)::before{
     content: '*';
     position: absolute;
@@ -19,6 +16,7 @@ h1{
     font-size: 30px;
     color: red;
 }
+
 Upload{
     display: inline-block;
 }
@@ -38,5 +36,33 @@ Upload{
 }
 .info:nth-child(6){
     margin-top: 120px;
+}
+.root{
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+}
+.root Input{
+    width: 20em;
+}
+.root p{
+    width: 6em;
+    height: 1em;
+    line-height: 1em;
+}
+.root .content Select{
+    padding: 0.5em;
+    margin: 1em;
+}
+
+.info Input{
+    position: absolute;
+    width: 180px;
+    left: 70px;
+}
+.info:nth-child(6) Input{
+    width: 0;
 }
 

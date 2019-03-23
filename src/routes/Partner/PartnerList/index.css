@@ -1,6 +1,10 @@
 .header1{
     display: flex;
-    margin: 20px;
+
+}
+*{
+    margin: 0;
+    padding: 0;
 }
 .header2{
     display: flex;
@@ -8,9 +12,12 @@
 }
 .box{
     margin: 10px;
+    display: flex;
+    flex-direction:row;
 }
 Input{
     display: inline;
+
 }
 Button{
     margin: 5px;

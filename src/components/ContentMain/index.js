@@ -36,6 +36,15 @@ const TagDemo = LoadableComponent(()=>import('../../routes/Vip/Tag'))
 const ListDemo = LoadableComponent(()=>import('../../routes/Goods/List'))
 const AuditDemo = LoadableComponent(()=>import('../../routes/Goods/Audit'))
 
+/*
+//店铺管理
+const AuditShop = LoadableComponent(()=>import('../../routes/shop/auditshop'))
+const ListShop = LoadableComponent(()=>import('../../routes/shop/listshop'))
+const RecordShop = LoadableComponent(()=>import('../../routes/shop/recordshop'))
+*/
+
+
+
 //导航组件Demo
 const DropdownDemo = LoadableComponent(()=>import('../../routes/Navigation/DropdownDemo/index'))
 const MenuDemo = LoadableComponent(()=>import('../../routes/Navigation/MenuDemo/index'))
@@ -102,6 +111,15 @@ class ContentMain extends React.Component {
           //商品
           <PrivateRoute exact path='/home/goods/list' component={ListDemo}/>
           <PrivateRoute exact path='/home/goods/audit' component={AuditDemo}/>
+
+{/*
+          //店铺
+          <PrivateRoute exact path='/home/shop/auditshop' component={AuditShop}/>
+          <PrivateRoute exact path='/home/shop/listshop' component={ListShop}/>
+          <PrivateRoute exact path='/home/shop/recordshop' component={RecordShop}/>
+
+*/}
+
 
 
 

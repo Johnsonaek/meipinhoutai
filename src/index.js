@@ -12,12 +12,12 @@ import store from './store'
 
 //打包时，用的HashRouter并加上了basename，因为放在服务器的二级目录下
 ReactDOM.render(
-  <HashRouter>
+  <BrowserRouter>
     <LocaleProvider locale={zh_CN}>
       <Provider {...store}>
         <App/>
       </Provider>
     </LocaleProvider>
-  </HashRouter>,
+  </BrowserRouter>,
   document.getElementById('root'));
 registerServiceWorker();

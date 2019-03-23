@@ -10,6 +10,9 @@ import './style.css'
 class LoginForm extends React.Component {
   state = {
     focusItem: -1,
+    user:'',
+    pwd:'',
+
   }
 
   componentDidMount () {
@@ -21,7 +24,7 @@ class LoginForm extends React.Component {
   }
 
   loginSubmit = (e) => {
-    e.preventDefault()
+    /*e.preventDefault()
     this.setState({
       focusItem: -1
     })
@@ -56,8 +59,27 @@ class LoginForm extends React.Component {
         const {from} = this.props.location.state || {from: {pathname: '/'}}
         this.props.history.push(from)
       }
+    })*/
+
+    let formData = new FormData();
+    formData.append("username", "Groucho");
+    formData.append("accountnum", 123456);
+
+    fetch("http://test1001.meipinsuda.com/partner/communal/doLogin",{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body:{formData}
+    }).then((respone)=>{
+        console.log("respone ==>",respone)
+    }).catch((err)=>{
+        console.error(err);
     })
-  }
+
+  };
+
+
   register = () => {
     this.props.setShowBox('register')
     setTimeout(() => this.props.form.resetFields(), 500)

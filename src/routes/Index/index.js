@@ -8,9 +8,17 @@ const {Sider, Header, Content, Footer} = Layout
 
 
 class Index extends React.Component{
-  state = {
-    collapsed: false
+  constructor(props) {
+    super(props);
+    this.state = {
+      collapsed: false
+    }
   }
+
+  componentWillMount() {
+    document.title = '美品苏打商家后台'
+  }
+
 
   toggle = () => {
     // console.log(this)  状态提升后，到底是谁调用的它

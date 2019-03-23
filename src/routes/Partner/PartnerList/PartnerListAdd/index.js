@@ -1,8 +1,12 @@
 import React from 'react'
 import {Icon, message,Radio ,Select, Card, DatePicker, Input, Upload, Button} from 'antd'
-import './index.css'
+import mycss from './index.less'
+
 const RadioGroup = Radio.Group;
 const Option = Select.Option;
+
+
+
 
 
 function getBase64(img, callback) {
@@ -41,13 +45,38 @@ function beforeUpload(file) {
 class PartnerListAdd extends React.Component{
   state = {
     loading: false,
-    value1: 1,
+    value2: 1,
+    value:1,
+    imageUrl :'',
   };
-  onChange = (e) => {
+  onChange = (e)=> {
     console.log('radio checked', e.target.value);
     this.setState({
       value: e.target.value,
-    });
+    })
+  }
+  onChange2 = (e)=> {
+    console.log('radio checked', e.target.value);
+    this.setState({
+      value2: e.target.value,
+    })
+  }
+  submitdata = ()=>{
+    let formData = new FormData();
+    formData.append("username", "222");
+    formData.append("password", 123456);
+
+    fetch("http://test1001.meipinsuda.com/partner/communal/doLogin",{
+      method: "POST",
+      headers: {
+        "Content-Type": "form-data"
+      },
+      body:JSON.stringify(formData),
+    }).then((respone)=>{
+      console.log("respone ==>",respone)
+    }).catch((err)=>{
+      console.error(err);
+    })
   }
   handleChange = (info) => {
     if (info.file.status === 'uploading') {
@@ -85,15 +114,16 @@ class PartnerListAdd extends React.Component{
       }
     }
 
+
     return (
       <div style={styles.bg} className={"box"}>
         <h1>会员列表/添加</h1>
         <Card bordered={false} title='基本信息' style={{marginBottom: 10, minHeight: 440}} id='editTable'>
-          <div className={'info'}>电话：<Input type="text"placeholder=' 请输入关键字'/></div>
-          <div className={'info'}>用户名：<Input type="text"placeholder=' 请输入关键字'/></div>
-          <div className={'info'}>姓名：<Input type="text"placeholder=' 请输入用户姓名'/></div>
-          <div className={'info'}>密码：<Input type="text"placeholder=' 请输入登陆手机密码'/></div>
-          <div className={'info'}>
+          <div className={'info info1'}>电话：<Input type="text"placeholder=' 请输入关键字'/></div>
+          <div className={'info info2'}>用户名：<Input type="text"placeholder=' 请输入关键字'/></div>
+          <div className={'info inf3'}>姓名：<Input type="text"placeholder=' 请输入用户姓名'/></div>
+          <div className={'info inf4'}>密码：<Input type="text"placeholder=' 请输入登陆手机密码'/></div>
+          <div className={'info inf5'}>
               身份证：
               <div className={'picbox'}>
                 <Upload
@@ -120,28 +150,43 @@ class PartnerListAdd extends React.Component{
                 </Upload>
               </div>
           </div>
-          <div className={'info'}>状态：
+          <div className={'info info6'}>状态：
               <RadioGroup onChange={this.onChange} value={this.state.value}>
-              <Radio value={1}>可用</Radio>
-              <Radio value={2}>不可用</Radio>
+              <Radio value ={1} className={'AAA'}>可用</Radio>
+              <Radio value ={2} className={'AAA'}>不可用</Radio>
             </RadioGroup>
           </div>
         </Card>
         <Card  bordered={false} title='会员权限' style={{marginBottom: 10, minHeight: 440}} id='editTable'>
-          <div className={'info'}>省/市/区：<Input type="text"placeholder=' '/></div>
-          <div className={'info'}>地址：<Input type="text"placeholder=' 请输入地址'/></div>
-          <div className={'info'}>
-            权限：
+          <div className="root">
+            <p>省/市/区：</p>
+            <div className="content">
+              <Select defaultValue={'省'}></Select>
+              <Select defaultValue={'市'}></Select>
+              <Select defaultValue={'区'}></Select>
+            </div>
           </div>
-          <div className={'info'}>期限：<Input type="text"placeholder=' '/></div>
-          <div className={'info'}>缴费：
-            <RadioGroup onChange={this.onChange} value={this.state.value}>
-              <Radio value={3}>已缴费</Radio>
-              <Radio value={4}>未缴费</Radio>
+          <div className="root">
+            <p>地址：</p>
+            <Input type="请输入详细地址"/>
+          </div>
+          <div className="root">
+            <p>权限：</p>
+            <Select defaultValue={'一级合作/500店'}></Select>
+          </div>
+          <div className="root">
+            <p>期限: </p>
+            <Select defaultValue={'12个月'}></Select>
+          </div>
+          <div className="root">
+            <p>缴费: </p>
+            <RadioGroup onChange={this.onChange2} value={this.state.value2}>
+              <Radio value={1}>已缴费</Radio>
+              <Radio value={2}>未缴费</Radio>
             </RadioGroup>
           </div>
-          <div>
-            <Button>保存</Button>
+          <div className="root">
+            <Button onClick={this.submitdata}>保存</Button>
           </div>
         </Card>
       </div>

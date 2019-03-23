@@ -48,9 +48,9 @@ const menus = [
     icon: 'environment',
     key: '/home/display',
     subs: [
-      {key: '/home/display/carousel', title: '店铺列表', icon: ''},
-      {key: '/home/display/collapse', title: '开店备案', icon: ''},
-      {key: '/home/display/list', title: '开店审核', icon: ''},
+      {key: '/home/shop/listshop', title: '店铺列表', icon: ''},
+      {key: '/home/shop/auditshop', title: '开店备案', icon: ''},
+      {key: '/home/shop/recordshop', title: '开店审核', icon: ''},
     ]
   },
   {

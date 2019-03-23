@@ -1,173 +1,10 @@
 import React from 'react'
-import {Card, Popconfirm, Button, Icon, Table, Divider, BackTop, DatePicker, Form, InputNumber, Input} from 'antd'
+import {Card, Popconfirm, Button,Select, Table, Divider, BackTop, DatePicker, Form, InputNumber, Input} from 'antd'
 import axios from 'axios'
 import CustomBreadcrumb from '../../../components/CustomBreadcrumb/index'
 import TypingCard from '../../../components/TypingCard'
 import './index.css'
-
-const columns = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
-    render: text => <a>{text}</a>,
-  }, {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-  }, {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
-  }, {
-    title: 'Action',
-    key: 'action',
-    render: (text, record) => (
-        <span>
-      <a>Action 一 {record.name}</a>
-      <Divider type="vertical"/>
-      <a>Delete</a>
-      <Divider type="vertical"/>
-      <a className="ant-dropdown-link">
-        More actions <Icon type="down"/>
-      </a>
-    </span>
-    ),
-  }]
-
-const data = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-  }, {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-  }, {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-  }]
-
-const columns2 = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-  }, {
-    title: 'Age',
-    dataIndex: 'age',
-  }, {
-    title: 'Address',
-    dataIndex: 'address',
-  }]
-
-const data2 = []
-for (let i = 0; i < 46; i++) {
-  data2.push({
-    key: i,
-    name: `Edward King ${i}`,
-    age: 32,
-    address: `London, Park Lane no. ${i}`,
-  })
-}
-
-const data3 = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-  }, {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-  }, {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-  }, {
-    key: '4',
-    name: 'Jim Red',
-    age: 32,
-    address: 'London No. 2 Lake Park',
-  }]
-
-const columns4 = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    sorter: true,
-    render: name => `${name.first} ${name.last}`,
-    width: '20%',
-  }, {
-    title: 'Gender',
-    dataIndex: 'gender',
-    filters: [
-      {text: 'Male', value: 'male'},
-      {text: 'Female', value: 'female'},
-    ],
-    width: '20%',
-  }, {
-    title: 'Email',
-    dataIndex: 'email',
-  }]
-
-const columns5 = [
-  {title: 'Name', dataIndex: 'name', key: 'name'},
-  {title: 'Age', dataIndex: 'age', key: 'age'},
-  {title: 'Address', dataIndex: 'address', key: 'address'},
-  {title: 'Action', dataIndex: '', key: 'x', render: () => <a>Delete</a>},
-];
-
-const data5 = [
-  {
-    key: 1,
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    description: 'My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.'
-  },
-  {
-    key: 2,
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    description: 'My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.'
-  },
-  {
-    key: 3,
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    description: 'My name is Joe Black, I am 32 years old, living in Sidney No. 1 Lake Park.'
-  },
-];
-
-const columns6 = [
-  {title: 'Full Name', width: 100, dataIndex: 'name', key: 'name', fixed: 'left'},
-  {title: 'Age', width: 100, dataIndex: 'age', key: 'age', fixed: 'left'},
-  {title: 'Column 1', dataIndex: 'address', key: '1', width: 150},
-  {title: 'Column 2', dataIndex: 'address', key: '2', width: 150},
-  {title: 'Column 3', dataIndex: 'address', key: '3', width: 150},
-  {title: 'Column 4', dataIndex: 'address', key: '4', width: 150},
-  {title: 'Column 5', dataIndex: 'address', key: '5', width: 150},
-  {title: 'Column 6', dataIndex: 'address', key: '6', width: 150},
-  {title: 'Column 7', dataIndex: 'address', key: '7', width: 150},
-  {title: 'Column 8', dataIndex: 'address', key: '8'},
-  {
-    title: 'Action',
-    key: 'operation',
-    fixed: 'right',
-    width: 100,
-    render: () => <a>action</a>,
-  },
-];
+const Option = Select.Option;
 
 const data8 = [];
 for (let i = 0; i < 100; i++) {
@@ -391,6 +228,19 @@ class PartnerList extends React.Component {
       ...filters,
     })
   }
+  addPartner(){
+    fetch('http://test1001.meipinsuda.com/partner/communal/doLogin',
+        {
+          method:"POST",
+          username:'222',
+          password:"123456",
+          captcha:'1111'
+        }).then(res=>{
+          console.log(res)
+    }).catch(err =>{
+      console.log(err)
+    })
+  }
   onDelete = (key) => {
     const arr = this.state.data7.slice()
     this.setState({
@@ -503,18 +353,29 @@ class PartnerList extends React.Component {
         }),
       };
     });
+      function handleChange(value) {
+          console.log(`selected ${value}`);
+      }
+      function handleChange2(value) {
+          console.log(`selected ${value}`);
+      }
     return (
         <div>
           <Card bordered={false} title='合伙人列表' style={{marginBottom: 10, minHeight: 440}} id='editTable'>
             <div className="header1">
                 <div className='box'>
-                  地区：<Input  addonAfter="V"  />
+                    <p style={{width:54}}>地区：</p><Select defaultValue="省/市/区" style={{ width: 120 }} onChange={handleChange}>
+                    <Option value="jack">Jack</Option>
+                    <Option value="lucy">Lucy</Option>
+                    <Option value="disabled" disabled>Disabled</Option>
+                    <Option value="Yiminghe">yiminghe</Option>
+                </Select>
                 </div>
                 <div className='box'>
-                  电话：<Input type="text" placeholder=' 请输入电话号码'/>
+                  <p style={{width:54}}>电话： </p><Input type="text" placeholder=' 请输入电话号码'/>
                 </div>
                 <div className='box'>
-                  姓名：<Input type="text"  placeholder=' 请输入姓名'/>
+                    <p style={{width:54}}>姓名： </p><Input type="text"  placeholder=' 请输入姓名'/>
                 </div>
             </div>
             <div className="header2">
@@ -522,7 +383,12 @@ class PartnerList extends React.Component {
                 创建时间：<DatePicker />
               </div>
               <div className='box'>
-                <Input addonBefore="状态" addonAfter="V" defaultValue="全部" />
+                  状态：<Select defaultValue="全部" style={{ width: 120 }} onChange={handleChange2}>
+                      <Option value="jack">Jack</Option>
+                      <Option value="lucy">Lucy</Option>
+                      <Option value="disabled" disabled>Disabled</Option>
+                      <Option value="Yiminghe">yiminghe</Option>
+                  </Select>
               </div>
               <div className='box'>
                 <Button>搜索</Button>
@@ -531,7 +397,7 @@ class PartnerList extends React.Component {
             </div>
 
             <p>
-              <Button link to = '/home'>添加合伙人</Button>
+              <Button onClick={this.addPartner}>添加合伙人</Button>
             </p>
             <Table style={styles.tableStyle} components={components} bordered dataSource={this.state.data8}
                    columns={columns8}/>
