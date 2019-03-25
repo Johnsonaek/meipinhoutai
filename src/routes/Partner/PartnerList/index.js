@@ -397,7 +397,7 @@ class PartnerList extends React.Component {
             </div>
 
             <p>
-              <Button onClick={this.addPartner}>添加合伙人</Button>
+              <Button onClick={this.addPartner}><a href="./partnerlist/partnerlistadd">添加合伙人</a></Button>
             </p>
             <Table style={styles.tableStyle} components={components} bordered dataSource={this.state.data8}
                    columns={columns8}/>
