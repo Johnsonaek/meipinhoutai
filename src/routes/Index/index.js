@@ -30,7 +30,7 @@ class Index extends React.Component{
     // 设置Sider的minHeight可以使左右自适应对齐
     return (
       <div id='page'>
-        <Layout>
+        <Layout >
           <Sider collapsible
                  trigger={null}
                  collapsed={this.state.collapsed}
@@ -40,8 +40,9 @@ class Index extends React.Component{
           <Layout>
             <Header style={{background: '#fff', padding: '0 16px'}}>
               <HeaderBar collapsed={this.state.collapsed} onToggle={this.toggle}/>
+
             </Header>
-            <Content>
+            <Content >
               <ContentMain/>
             </Content>
             <Footer style={{textAlign: 'center'}}> <a target='_blank' href='https://github.com/zhangZhiHao1996/react-admin-master'>玛姿宝科技有限公司</a></Footer>

@@ -1,8 +1,9 @@
 import React from 'react'
 import {Card, Popconfirm, Button,Select, Table, Divider, BackTop, DatePicker, Form, InputNumber, Input} from 'antd'
 import axios from 'axios'
-import CustomBreadcrumb from '../../../components/CustomBreadcrumb/index'
+
 import TypingCard from '../../../components/TypingCard'
+import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
 import './index.css'
 const Option = Select.Option;
 
@@ -361,6 +362,7 @@ class PartnerList extends React.Component {
       }
     return (
         <div>
+          <CustomBreadcrumb arr={['合伙人管理','合伙人列表']}/>
           <Card bordered={false} title='合伙人列表' style={{marginBottom: 10, minHeight: 440}} id='editTable'>
             <div className="header1">
                 <div className='box'>
@@ -397,7 +399,7 @@ class PartnerList extends React.Component {
             </div>
 
             <p>
-              <Button onClick={this.addPartner}><a href="./partnerlist/partnerlistadd">添加合伙人</a></Button>
+              <Button >添加合伙人</Button>
             </p>
             <Table style={styles.tableStyle} components={components} bordered dataSource={this.state.data8}
                    columns={columns8}/>
