@@ -1,11 +1,13 @@
 import React from 'react'
 import {notification} from 'antd'
-
+import CustomBreadcrumb from '../../../components/CustomBreadcrumb'
 class Assessment extends React.Component{
 
   render(){
     return (
+
       <div style={styles.bg}>
+        <CustomBreadcrumb arr={['数据管理','评价体系']}/>
         hello,Assessment
       </div>
     )
